@@ -6,6 +6,10 @@
   margin-right: 30px;
   transition: 0.3s;
 
+  .plus {
+    cursor: pointer;
+  }
+
   &:hover {
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.06);
     transform: translateY(-5px);

@@ -1,11 +1,17 @@
 import styles from './Card.module.scss';
+import { useState } from 'react';
 
-console.log(styles);
+const Card = ({title, price, imageUrl, onFavorite, onPlus}) => {
 
-const Card = ({title, price, imageUrl}) => {
+  const [checked, setChecked] = useState(false);
+
+  function onClickPlus() {
+    setChecked(!checked)
+  }
+
   return (
     <div className={styles.card}>
-      <div className={styles.favorite}>
+      <div className={styles.favorite} onClick={onFavorite}>
         <img src="/img/heart-unliked.svg" alt="Unliked" />
       </div>
       <div style={{textAlign: 'center'}}>
@@ -22,9 +28,7 @@ const Card = ({title, price, imageUrl}) => {
           <span>Цена: </span>
           <b>{ price } руб.</b>
         </div>
-        <button className="button" onClick={() => {alert(`Вы нажали на товар с названием:\n ${title}`)}}>
-          <img width={11} height={11} src="/img/plus.svg" alt="+" />
-        </button>
+        <img className={styles.plus} src={!checked ? "/img/btn-plus.svg" : "/img/btn-checked.svg"} alt="+" onClick={onClickPlus} />
       </div>
     </div>
   )
