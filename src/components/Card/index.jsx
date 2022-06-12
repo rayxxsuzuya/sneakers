@@ -6,6 +6,7 @@ const Card = ({title, price, imageUrl, onFavorite, onPlus}) => {
   const [checked, setChecked] = useState(false);
 
   function onClickPlus() {
+    onPlus({title, price, imageUrl});
     setChecked(!checked)
   }
 
